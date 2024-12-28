@@ -403,11 +403,6 @@ print("Çıktılar mevcut excel dosyasına kaydedildi: 'trendyol_verisi.xlsx'")
 rf_pred = rf.predict(X_test)
 rf_class_report = classification_report(y_test, rf_pred, output_dict=True)
 
-
-with pd.ExcelWriter('samsunrize.xlsx') as writer:
-    df.to_excel(writer, sheet_name='Ürün Verisi', index=False)
-
-
     for class_label, metrics in rf_class_report.items():
         if class_label != 'accuracy': 
             class_df = pd.DataFrame(metrics, index=[class_label])
